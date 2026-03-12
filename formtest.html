@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Form Test</title>
+</head>
+
+<body>
+  <h1>Exercise 1: Multi-Select Debugging</h1>
+
+  <!-- This form sends the data to formtest.php -->
+  <form action="formtest.php" method="post">
+    <p>
+      <!-- Text input for the visitor name -->
+      <label>Your Name:
+        <input type="text" name="visitor_name">
+      </label>
+    </p>
+
+    <p>
+      <!-- Password input just for testing form submission -->
+      <label>Password:
+        <input type="password" name="password">
+      </label>
+    </p>
+
+    <p>Optional features:</p>
+    <p>
+      <!--
+        The [] is important here because it lets PHP receive
+        multiple selected values as an array
+      -->
+      <select name="options[]" size="6" multiple>
+        <option>Chat</option>
+        <option>Email</option>
+        <option>File transfer</option>
+        <option>Directory</option>
+        <option>Shell</option>
+        <option>Remote control</option>
+      </select>
+    </p>
+
+    <p>
+      <input type="submit" value="Sign Up">
+    </p>
+  </form>
+</body>
+
+</html>
