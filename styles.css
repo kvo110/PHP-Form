@@ -1,0 +1,155 @@
+/*
+  styles.css
+  Shared styling for CW04 pages
+
+  Student note:
+  - I kept the design simple so it still feels like a class assignment
+  - This file is reused by the forms and PHP output pages
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #f4f7fb 0%, #e9eef7 100%);
+  color: #1f2937;
+}
+
+.page {
+  width: min(92%, 780px);
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  color: #1d4ed8;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.intro {
+  margin-bottom: 22px;
+  color: #4b5563;
+}
+
+.form-row {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fff;
+}
+
+select[multiple] {
+  min-height: 180px;
+}
+
+.card-options {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.card-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.button-row {
+  margin-top: 24px;
+}
+
+input[type="submit"],
+button,
+.link-button {
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+input[type="submit"]:hover,
+button:hover,
+.link-button:hover {
+  background: #1d4ed8;
+}
+
+.panel {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+pre {
+  background: #111827;
+  color: #f9fafb;
+  padding: 14px;
+  border-radius: 12px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.back-link {
+  margin-top: 20px;
+}
+
+.status-error {
+  color: #b91c1c;
+}
+
+.status-success {
+  color: #166534;
+}
+
+dt {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+dd {
+  margin: 0 0 18px 0;
+}
+
+ul.page-links {
+  padding-left: 20px;
+}
+
+ul.page-links li {
+  margin-bottom: 10px;
+}
