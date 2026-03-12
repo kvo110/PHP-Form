@@ -2,33 +2,39 @@
 // These are the fields the user must complete
 $required = ['name', 'section', 'cardnumber', 'cardtype'];
 
-// Check each required field before doing anything else
+// Check each required field before saving anything
 foreach ($required as $field) {
   if (!isset($_POST[$field]) || trim($_POST[$field]) === '') {
-    echo '<h1>Sorry</h1>';
-    echo '<p>You did not fill out the form completely. <a href="buyagrade.html">Try again?</a></p>';
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Form Error</title>
+      <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+      <div class="page">
+        <h1 class="status-error">Sorry</h1>
+        <p class="intro">
+          You did not fill out the form completely.
+        </p>
+        <p>
+          <a class="link-button" href="buyagrade.html">Try Again</a>
+        </p>
+      </div>
+    </body>
+    </html>
+    <?php
     exit;
   }
 }
 
-// Clean up the submitted values
+// Clean the submitted values
 $name = trim($_POST['name'] ?? '');
 $section = trim($_POST['section'] ?? '');
 $cardnumber = trim($_POST['cardnumber'] ?? '');
 $cardtype = trim($_POST['cardtype'] ?? '');
-
-// Show the raw POST data while testing
-echo '<h1>Raw Form Data</h1>';
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-
-// Show the submitted values safely on the page
-echo '<h1>Form input values</h1>';
-echo '<p>Your Name: ' . htmlspecialchars($name) . '</p>';
-echo '<p>Section: ' . htmlspecialchars($section) . '</p>';
-echo '<p>Card Number: ' . htmlspecialchars($cardnumber) . '</p>';
-echo '<p>Card Type: ' . htmlspecialchars($cardtype) . '</p>';
 
 // Build one line of text to save into the file
 $line = $name . ';' . $section . ';' . $cardnumber . ';' . $cardtype . PHP_EOL;
@@ -38,8 +44,42 @@ file_put_contents('suckers.html', $line, FILE_APPEND);
 
 // Read everything currently stored in the file
 $all = file_get_contents('suckers.html');
-
-// Print the current file contents to confirm save worked
-echo '<h2>The current database contains:</h2>';
-echo '<pre>' . htmlspecialchars($all) . '</pre>';
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buy A Grade Result</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <h1 class="status-success">Thanks, Sucker!</h1>
+    <p class="intro">
+      Your form was submitted successfully and your record was added to the file.
+    </p>
+
+    <div class="panel">
+      <h2>Form Input Values</h2>
+      <p><strong>Your Name:</strong> <?= htmlspecialchars($name) ?></p>
+      <p><strong>Section:</strong> <?= htmlspecialchars($section) ?></p>
+      <p><strong>Card Number:</strong> <?= htmlspecialchars($cardnumber) ?></p>
+      <p><strong>Card Type:</strong> <?= htmlspecialchars($cardtype) ?></p>
+    </div>
+
+    <div class="panel">
+      <h2>Raw Form Data</h2>
+      <pre><?php print_r($_POST); ?></pre>
+    </div>
+
+    <div class="panel">
+      <h2>The Current Database Contains</h2>
+      <pre><?= htmlspecialchars($all) ?></pre>
+    </div>
+
+    <p class="back-link">
+      <a class="link-button" href="buyagrade.html">Submit Another Entry</a>
+    </p>
+  </div>
+</body>
+</html>

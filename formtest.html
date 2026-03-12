@@ -4,47 +4,56 @@
 <head>
   <meta charset="UTF-8">
   <title>Form Test</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <h1>Exercise 1: Multi-Select Debugging</h1>
-
-  <!-- This form sends the data to formtest.php -->
-  <form action="formtest.php" method="post">
-    <p>
-      <!-- Text input for the visitor name -->
-      <label>Your Name:
-        <input type="text" name="visitor_name">
-      </label>
+  <div class="page">
+    <h1>Exercise 1: Multi-Select Debugging</h1>
+    <p class="intro">
+      This page tests whether multiple selected features are correctly sent to PHP.
     </p>
 
-    <p>
-      <!-- Password input just for testing form submission -->
-      <label>Password:
-        <input type="password" name="password">
-      </label>
-    </p>
+    <!-- This form sends the data to formtest.php -->
+    <form action="formtest.php" method="post">
+      <div class="form-row">
+        <!-- Text input for the visitor name -->
+        <label for="visitor_name">Your Name</label>
+        <input id="visitor_name" type="text" name="visitor_name" placeholder="Enter your name">
+      </div>
 
-    <p>Optional features:</p>
-    <p>
-      <!--
-        The [] is important here because it lets PHP receive
-        multiple selected values as an array
-      -->
-      <select name="options[]" size="6" multiple>
-        <option>Chat</option>
-        <option>Email</option>
-        <option>File transfer</option>
-        <option>Directory</option>
-        <option>Shell</option>
-        <option>Remote control</option>
-      </select>
-    </p>
+      <div class="form-row">
+        <!-- Password input just for testing form submission -->
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="Enter a password">
+      </div>
 
-    <p>
-      <input type="submit" value="Sign Up">
+      <div class="form-row">
+        <label for="options">Optional Features</label>
+
+        <!--
+          The [] is important here because it lets PHP receive
+          multiple selected values as an array
+        -->
+        <select id="options" name="options[]" size="6" multiple>
+          <option>Chat</option>
+          <option>Email</option>
+          <option>File transfer</option>
+          <option>Directory</option>
+          <option>Shell</option>
+          <option>Remote control</option>
+        </select>
+      </div>
+
+      <div class="button-row">
+        <input type="submit" value="Sign Up">
+      </div>
+    </form>
+
+    <p class="back-link">
+      <a class="link-button" href="index.html">Back to CW04 Home</a>
     </p>
-  </form>
+  </div>
 </body>
 
 </html>

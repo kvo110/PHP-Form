@@ -4,54 +4,63 @@
 <head>
   <meta charset="UTF-8">
   <title>Buy A Grade</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <h1>Buy Your Way to a Better Grade!</h1>
+  <div class="page">
+    <h1>Buy Your Way to a Better Grade!</h1>
+    <p class="intro">
+      Fill out the form below to submit your totally serious grade purchase request.
+    </p>
 
-  <!--
-    This form sends the entered data to sucker.php
-    where the values will be validated and saved
-  -->
-  <form action="sucker.php" method="post">
-    <dl>
-      <dt>Name</dt>
-      <dd>
-        <!-- Student name input -->
-        <input type="text" name="name">
-      </dd>
+    <!-- This form sends the entered data to sucker.php -->
+    <form action="sucker.php" method="post">
+      <dl>
+        <dt>Name</dt>
+        <dd>
+          <!-- Student name input -->
+          <input type="text" name="name" placeholder="Enter your full name">
+        </dd>
 
-      <dt>Section</dt>
-      <dd>
-        <!-- Course section dropdown -->
-        <select name="section">
-          <option value="">(Select a section)</option>
-          <option>MA</option>
-          <option>MB</option>
-          <option>MC</option>
-          <option>MD</option>
-          <option>ME</option>
-          <option>MF</option>
-          <option>MG</option>
-          <option>MH</option>
-        </select>
-      </dd>
+        <dt>Section</dt>
+        <dd>
+          <!-- Course section dropdown -->
+          <select name="section">
+            <option value="">(Select a section)</option>
+            <option>MA</option>
+            <option>MB</option>
+            <option>MC</option>
+            <option>MD</option>
+            <option>ME</option>
+            <option>MF</option>
+            <option>MG</option>
+            <option>MH</option>
+          </select>
+        </dd>
 
-      <dt>Credit Card</dt>
-      <dd>
-        <!-- Card number input -->
-        <input type="text" name="cardnumber"><br>
+        <dt>Credit Card</dt>
+        <dd>
+          <!-- Card number input -->
+          <input type="text" name="cardnumber" placeholder="Enter your card number">
 
-        <!-- Radio buttons for card type -->
-        <label><input type="radio" name="cardtype" value="visa"> Visa</label>
-        <label><input type="radio" name="cardtype" value="mastercard"> MasterCard</label>
-      </dd>
-    </dl>
+          <!-- Radio buttons for card type -->
+          <div class="card-options">
+            <label><input type="radio" name="cardtype" value="visa"> Visa</label>
+            <label><input type="radio" name="cardtype" value="mastercard"> MasterCard</label>
+          </div>
+        </dd>
+      </dl>
 
-    <div>
-      <input type="submit" value="I am a giant sucker.">
-    </div>
-  </form>
+      <div class="button-row">
+        <input type="submit" value="I am a giant sucker.">
+      </div>
+    </form>
+
+    <p class="back-link">
+      <a class="link-button" href="index.html">Back to CW04 Home</a>
+    </p>
+  </div>
 </body>
 
 </html>

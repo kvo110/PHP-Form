@@ -1,0 +1,75 @@
+Course: Web Programming
+Assignment: CW-04: PHP - Form
+Student Name: Huy (Kenny) Gia Vo
+Date: 03/12/2026
+
+1. Development Summary
+
+- What I built:
+  I built a small PHP form-handling activity that included fixing a multi-select form bug, creating a complete Buy-A-Grade HTML form, displaying submitted form data in PHP, saving valid submissions to a server file, and adding basic validation so incomplete forms are rejected.
+
+- Files I edited:
+  formtest.html
+  formtest.php
+  buyagrade.html
+  sucker.php
+  suckers.html
+
+- Main objective achieved:
+  The main objective achieved was successfully sending form data from HTML to PHP, processing the values correctly, validating required fields, and storing valid records in a file.
+
+2. Test Evidence
+
+- Test Case A (valid input):
+  Expected:
+  The form should submit to sucker.php, display all entered values, and append the new record into suckers.html.
+  Actual:
+  The form displayed the correct name, section, card number, and card type. A new line was also added to suckers.html in the correct format.
+
+- Test Case B (blank field):
+  Expected:
+  If one or more required fields are missing, the page should show an error message and stop before writing anything to suckers.html.
+  Actual:
+  The PHP script displayed the “Sorry” message and the retry link. No new line was added to suckers.html.
+
+- Test Case C (multi-select 2+ options):
+  Expected:
+  Selecting multiple options in formtest.html should send all chosen values and display them together in formtest.php.
+  Actual:
+  After changing the name to options[], multiple selected values were successfully received and printed, such as Chat, Email, and File transfer.
+
+3. Critical Thinking Responses
+   Q1:
+   Changing a form field’s name attribute directly affects PHP processing because PHP uses that exact name as the key inside the $\_POST array. If the name changes, the PHP script must also change to match it. Otherwise, the script will not find the submitted value and may display blank output or cause errors.
+
+Q2:
+options[] is required for a multi-select input because it tells PHP to collect all selected values as an array. Without the square brackets, PHP only receives one value instead of all selected values. The failure that appears is that only one selected option is shown even if the user selected multiple items.
+
+Q3:
+Checking isset($\_POST['x']) only tells us whether the field was submitted at all. Checking whether a value is non-empty goes further and confirms the user actually entered useful data. A field can exist in $\_POST but still be blank, so both ideas are important for proper validation.
+
+Q4:
+Validation should run before file write operations so bad or incomplete data does not get saved. This prevents the bug where empty or partial records are appended into suckers.html, which would make the stored data inaccurate and messy.
+
+Q5:
+A flat file is simple and works well for a small assignment because it is easy to set up and requires no database server. However, a database would be better for larger systems because it handles searching, updating, security, and large amounts of data more effectively. The trade-off is simplicity versus scalability and structure.
+
+Q6:
+I verified my output by testing each exercise in order and comparing the results to the expected screenshots and instructions. I also tested multiple input combinations, including valid and invalid cases, and checked that the displayed output and saved records matched the assignment requirements.
+
+Q7:
+In a real production system, I would improve user trust and security by using stronger validation, sanitizing all inputs, masking sensitive card data, using HTTPS, avoiding storing full card numbers in plain text, and adding better error messages. I would also style the page more professionally so it looks trustworthy and easier to use.
+
+Q8:
+CSS and page structure can reduce student mistakes by making labels clearer, grouping related fields neatly, and highlighting required inputs. A cleaner layout makes it easier to understand what needs to be filled out and where errors are happening during testing.
+
+4. Reflection
+
+- Biggest debugging challenge:
+  The biggest debugging challenge was the multi-select list because it looked correct in HTML, but PHP only received one option until the field name was changed to options[].
+
+- What I learned about HTML-PHP data flow:
+  I learned that the form field names in HTML directly control how PHP receives submitted data through $\_POST. I also learned that validation and safe output are important when processing user input.
+
+- What I would improve next:
+  Next, I would improve the styling, add clearer required-field indicators, and make the validation messages more user-friendly. I would also avoid storing full card information in plain text if this were a real system.
