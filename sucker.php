@@ -36,15 +36,23 @@ $section = trim($_POST['section'] ?? '');
 $cardnumber = trim($_POST['cardnumber'] ?? '');
 $cardtype = trim($_POST['cardtype'] ?? '');
 
-// Build a more readable vertical format for the database file
-$line =
-"Name: $name\n" .
-"Section: $section\n" .
-"Card Number: $cardnumber\n" .
-"Card Type: $cardtype\n\n";
+// Capture the raw POST array output
+$arrayOutput = print_r($_POST, true);
 
-// Add the new record to the end of suckers.html
-file_put_contents('suckers.html', $line, FILE_APPEND);
+// Build the saved record in a format HTML will preserve
+$record =
+"<pre>" .
+"Name: " . htmlspecialchars($name) . "\n" .
+"Section: " . htmlspecialchars($section) . "\n" .
+"Card Number: " . htmlspecialchars($cardnumber) . "\n" .
+"Card Type: " . htmlspecialchars($cardtype) . "\n\n" .
+"Raw Form Data:\n" .
+htmlspecialchars($arrayOutput) .
+"------------------------------\n" .
+"</pre>\n";
+
+// Save the record
+file_put_contents('suckers.html', $record, FILE_APPEND);
 
 // Read everything currently stored in the file
 $all = file_get_contents('suckers.html');
@@ -78,7 +86,7 @@ $all = file_get_contents('suckers.html');
 
     <div class="panel">
       <h2>The Current Database Contains</h2>
-      <pre><?= htmlspecialchars($all) ?></pre>
+      <?= $all ?>
     </div>
 
     <p class="back-link">
