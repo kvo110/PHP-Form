@@ -36,8 +36,12 @@ $section = trim($_POST['section'] ?? '');
 $cardnumber = trim($_POST['cardnumber'] ?? '');
 $cardtype = trim($_POST['cardtype'] ?? '');
 
-// Build one line of text to save into the file
-$line = $name . ';' . $section . ';' . $cardnumber . ';' . $cardtype . PHP_EOL;
+// Build a more readable vertical format for the database file
+$line =
+"Name: $name\n" .
+"Section: $section\n" .
+"Card Number: $cardnumber\n" .
+"Card Type: $cardtype\n\n";
 
 // Add the new record to the end of suckers.html
 file_put_contents('suckers.html', $line, FILE_APPEND);
