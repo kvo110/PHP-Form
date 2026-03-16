@@ -73,3 +73,17 @@ Date: 03/12/2026
 
   - What I would improve next:
     Next, I would improve the styling, add clearer required-field indicators, and make the validation messages more user-friendly. I would also avoid storing full card information in plain text if this were a real system.
+
+CW-04 Working Links
+
+  Main Page
+    https://codd.cs.gsu.edu/~hvo30/WP/CW/CW04/index.html
+
+  Exercise 1 – Multi-Select Form Test
+    https://codd.cs.gsu.edu/~hvo30/WP/CW/CW04/formtest.html
+
+  Exercise 2–5 – Buy-A-Grade Form
+    https://codd.cs.gsu.edu/~hvo30/WP/CW/CW04/buyagrade.html
+
+  Saved Records Database
+    https://codd.cs.gsu.edu/~hvo30/WP/CW/CW04/suckers.html
